@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-app-svc
-  namespace: ingress-demo
+  namespace: service-demo
 spec:
   selector:
     app: nginx
