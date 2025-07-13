@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  namespace: ingress-demo
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /flask
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-app-svc
+            port:
+              number: 80
+      - path: /demo
+        pathType: Prefix
+        backend:
+          service:
+            name: httpbin-svc
+            port:
+              number: 7905
+      - path: /example
+        pathType: Prefix
+        backend:
+          service:
+            name: ealen-svc
+            port:
+              number: 3000
+              

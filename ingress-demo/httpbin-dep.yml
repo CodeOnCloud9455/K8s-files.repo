@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin-dep
+  namespace: ingress-demo
+  labels:
+    app: httpbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbin 
+
+
+  template:
+    metadata:
+      labels:
+        app: httpbin
+
+    spec:
+      containers:
+        - name: httpbin-app
+          image: kennethreitz/httpbin
+          ports:
+            - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-demo-dep
+  namespace: ingress-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-demo
+
+
+  template:
+    metadata:
+      labels:
+        app: ingress-demo
+
+    spec:
+      containers:
+        - name: ingress-cont
+          image: sinnghanchal64276/cka-ingress-demo
+          ports:
+            - containerPort: 80

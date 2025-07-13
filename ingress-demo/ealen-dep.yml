@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ealen-dep
+  namespace: ingress-demo
+  labels:
+    app: ealen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ealen
+
+
+  template:
+    metadata:
+      labels:
+        app: ealen
+
+    spec:
+      containers:
+        - name: ealen-app
+          image: ealen/echo-server
+          ports:
+            - containerPort: 80
