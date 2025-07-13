@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notes-app-dep
-  namespace: ingress-demo
+  namespace: service-demo
 spec:
   replicas: 1
   selector:
